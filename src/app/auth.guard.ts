@@ -2,21 +2,18 @@ import { Injectable } from '@angular/core';
 import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 import { FacebookService } from 'ngx-facebook';
+import { AuthService } from './auth.service';
 
 @Injectable()
 export class AuthGuard implements CanActivate {
 
-  constructor(private fb: FacebookService) {}
+  constructor(private authService: AuthService) {}
 
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
-      
-      console.log("tu smo");
-
-    return this.fb.getLoginStatus()
-      .then((response) => {
-        return response.status == 'connected';
-      });
+    if (this.authService.getUser()) {
+      return true;
+    }
   }
 }

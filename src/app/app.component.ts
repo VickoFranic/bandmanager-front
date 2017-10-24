@@ -1,38 +1,19 @@
 import { Component, OnInit } from '@angular/core';
-import { FacebookService, InitParams, LoginResponse } from 'ngx-facebook';
 import { Router } from '@angular/router';
-import { environment } from '../environments/environment';
+import { AuthService } from './auth.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
 
-  constructor(private fb: FacebookService, private router: Router) {
-    let initParams: InitParams = {
-      appId: environment.appId,
-      xfbml: true,
-      version: 'v2.8'
-    };
+  constructor(private router: Router, private authService: AuthService) {}
 
-    fb.init(initParams);
-  }
-
-  loginWithFacebook(): void {
-    this.fb.login()
-      .then((response: LoginResponse) => {
-        this.router.navigate(['/dashboard']);
-      })
-      .catch((error: any) => console.log(error));
-  }
-
-  logOut(): void {
-    this.fb.logout()
-      .then((response) => {
-        this.router.navigate(['/']);
-      })
-      .catch((error: any) => console.log(error));
+  ngOnInit() {
+    if (this.authService.getUser) {
+      this.router.navigate(['/dashboard']);
+    }
   }
 }
