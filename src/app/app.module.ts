@@ -5,6 +5,9 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { FacebookService } from 'ngx-facebook';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { NgMaterialModule } from './ng-material/ng-material.module';
+import { RoutingModule } from './routing.module';
+import { AuthGuard } from './auth.guard';
 
 @NgModule({
   declarations: [
@@ -13,10 +16,13 @@ import { DashboardComponent } from './dashboard/dashboard.component';
   ],
   imports: [
     BrowserModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    NgMaterialModule,
+    RoutingModule
   ],
   providers: [
-    FacebookService
+    FacebookService,
+    AuthGuard
   ],
   bootstrap: [AppComponent]
 })

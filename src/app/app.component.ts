@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FacebookService, InitParams, LoginResponse } from 'ngx-facebook';
+import { Router } from '@angular/router';
+import { environment } from '../environments/environment';
 
 @Component({
   selector: 'app-root',
@@ -7,11 +9,10 @@ import { FacebookService, InitParams, LoginResponse } from 'ngx-facebook';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app';
 
-  constructor(private fb: FacebookService) {
+  constructor(private fb: FacebookService, private router: Router) {
     let initParams: InitParams = {
-      appId: '1528884584098427',
+      appId: environment.appId,
       xfbml: true,
       version: 'v2.8'
     };
@@ -21,7 +22,17 @@ export class AppComponent {
 
   loginWithFacebook(): void {
     this.fb.login()
-      .then((response: LoginResponse) => console.log(response))
+      .then((response: LoginResponse) => {
+        this.router.navigate(['/dashboard']);
+      })
+      .catch((error: any) => console.log(error));
+  }
+
+  logOut(): void {
+    this.fb.logout()
+      .then((response) => {
+        this.router.navigate(['/']);
+      })
       .catch((error: any) => console.log(error));
   }
 }
