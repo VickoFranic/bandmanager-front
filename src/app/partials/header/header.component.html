@@ -12,4 +12,8 @@
       <span>Logout</span>
     </button>
   </mat-menu>
+
+  <span class="fill-remaining-space"></span>
+  
+    <span *ngIf="authService.getUser()">{{ authService.getUser().name }}</span>
 </mat-toolbar>

@@ -23,7 +23,12 @@ export class AuthService {
         localStorage.setItem('userId', response.authResponse.userID);
         localStorage.setItem('accessToken', response.authResponse.accessToken);
 
-        this.router.navigate(['/dashboard']);
+        this.fb.api('/me')
+          .then((response) => {
+            localStorage.setItem('name', response.name);
+            this.router.navigate(['/dashboard']);
+          })
+          .catch((error) => console.log(error));
       })
       .catch((error: any) => console.log(error));
   }
@@ -48,6 +53,7 @@ export class AuthService {
 
   getUser() {
     let user = {
+      name: localStorage.getItem('name'),
       userId: localStorage.getItem('userId'),
       accessToken: localStorage.getItem('accessToken')
     }
