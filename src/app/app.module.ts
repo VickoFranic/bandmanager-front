@@ -9,6 +9,7 @@ import { AuthGuard } from './auth.guard';
 
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { FacebookClientService } from './dashboard/services/facebook-client.service';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     PartialsModule
   ],
   providers: [
-    AuthGuard
+    AuthGuard,
+    FacebookClientService
   ],
   bootstrap: [AppComponent]
 })

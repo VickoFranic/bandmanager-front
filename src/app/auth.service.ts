@@ -17,13 +17,18 @@ export class AuthService {
   }
 
   loginWithFacebook(): void {
-    this.fb.login()
+
+    let options = {
+      scope: 'public_profile,email,manage_pages'
+    }
+
+    this.fb.login(options)
       .then((response: LoginResponse) => {
         
         localStorage.setItem('userId', response.authResponse.userID);
         localStorage.setItem('accessToken', response.authResponse.accessToken);
 
-        this.fb.api('/me')
+        this.fb.api('/me?fields=id,name,email')
           .then((response) => {
             localStorage.setItem('name', response.name);
             this.router.navigate(['/dashboard']);

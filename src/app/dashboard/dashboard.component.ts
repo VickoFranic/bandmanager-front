@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FacebookClientService } from './services/facebook-client.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -9,9 +10,14 @@ export class DashboardComponent implements OnInit {
 
   bands: Array<Object> = [];
 
-  constructor() { }
+  constructor(private fbClient: FacebookClientService) { }
 
   ngOnInit() {
+    this.fbClient.getBands()
+      .then(bands => { 
+        this.bands = bands;
+        console.log(bands);
+      });
   }
 
 }

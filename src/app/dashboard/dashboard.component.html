@@ -1,7 +1,19 @@
 <div id="dashboard-container">
 
-  <div *ngIf="bands">
+  <div *ngIf="bands.length == 0">
     <mat-spinner></mat-spinner>
+  </div>
+
+  <div *ngIf="bands.length > 0">
+
+    <mat-card *ngFor="let band of bands">
+      <mat-card-header>
+        {{ band.id }}
+      </mat-card-header>
+      <mat-card-content>
+        {{ band.name }}
+      </mat-card-content>
+    </mat-card>
   </div>
 
 </div>
