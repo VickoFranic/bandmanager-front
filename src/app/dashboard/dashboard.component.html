@@ -4,16 +4,15 @@
     <mat-spinner></mat-spinner>
   </div>
 
-  <div *ngIf="bands.length > 0">
-
+  <section *ngIf="bands.length > 0">
     <mat-card *ngFor="let band of bands">
       <mat-card-header>
-        {{ band.id }}
+        <mat-card-title>{{ band.id }}</mat-card-title>
       </mat-card-header>
       <mat-card-content>
-        {{ band.name }}
+        <p>{{ band.name }}</p>
       </mat-card-content>
     </mat-card>
-  </div>
+  </section>
 
 </div>

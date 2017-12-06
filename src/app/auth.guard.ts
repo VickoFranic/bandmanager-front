@@ -7,13 +7,24 @@ import { AuthService } from './auth.service';
 @Injectable()
 export class AuthGuard implements CanActivate {
 
-  constructor(private authService: AuthService) {}
+  constructor(private authService: AuthService, private fb: FacebookService) {
+  }
 
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
-    if (this.authService.getUser()) {
-      return true;
+    
+      let user = this.authService.getUser();
+      if (user) {
+
+      return this.fb.api('/me', "get", {'access_token': user.accessToken})
+                .then((response) => { 
+                  return true;
+                })
+                .catch((error) => {
+                  localStorage.clear();
+                  return false;
+                });
     }
   }
 }
