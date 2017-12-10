@@ -9,12 +9,15 @@ import { AuthGuard } from './auth.guard';
 
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { BandsTableComponent } from './dashboard/bands-table/bands-table.component';
+
 import { FacebookClientService } from './dashboard/services/facebook-client.service';
 
 @NgModule({
   declarations: [
     AppComponent,
-    DashboardComponent
+    DashboardComponent,
+    BandsTableComponent
   ],
   imports: [
     BrowserModule,
