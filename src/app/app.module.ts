@@ -12,6 +12,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { BandsTableComponent } from './dashboard/bands-table/bands-table.component';
 
 import { FacebookClientService } from './dashboard/services/facebook-client.service';
+import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { FacebookClientService } from './dashboard/services/facebook-client.serv
     BrowserAnimationsModule,
     NgMaterialModule,
     RoutingModule,
-    PartialsModule
+    PartialsModule,
+    NgxDatatableModule
   ],
   providers: [
     AuthGuard,

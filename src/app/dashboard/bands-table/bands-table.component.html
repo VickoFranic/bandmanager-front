@@ -2,6 +2,21 @@
 
 <mat-spinner *ngIf="bands.length == 0"></mat-spinner>
 
+
+<div>
+  <ngx-datatable
+    class="material"
+    [rows]="rows"
+    [columns]="columns"
+    [columnMode]="'force'"
+    [headerHeight]="50"
+    [footerHeight]="50"
+    [rowHeight]="'auto'"
+    >
+  </ngx-datatable>
+</div>
+
+
 <!-- <section *ngIf="bands.length > 0">
   <mat-card *ngFor="let band of bands">
     <mat-card-header>
