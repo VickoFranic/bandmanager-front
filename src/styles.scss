@@ -16,3 +16,12 @@ span {
     font-family: 'Roboto', sans-serif;
     font-weight: 300;
 }
+
+/* Ngx Datatable */
+.datatable-body-row.active .datatable-row-group {
+    background: #e1bee7!important;
+}
+
+.datatable-body-row:hover {
+    cursor: pointer;
+}

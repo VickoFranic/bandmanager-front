@@ -9,8 +9,8 @@ import { FacebookClientService } from '../services/facebook-client.service';
 export class BandsTableComponent implements OnInit {
 
   bands: Array<Object> = [];
-
   rows = [];
+  selected = [];
 
   columns = [
     { prop: 'id' },
@@ -31,6 +31,10 @@ export class BandsTableComponent implements OnInit {
         this.rows.push(tmp);
       });
     });
+  }
+
+  onSelect({ selected }) {
+    console.log('Select Event', selected, this.selected);
   }
 
 }
