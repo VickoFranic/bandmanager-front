@@ -1,10 +1,8 @@
 
-
 <mat-spinner *ngIf="bands.length == 0"></mat-spinner>
 
-<h2>BANDS</h2>
-
-<div>
+<div *ngIf="bands.length > 0">
+  <h2>SELECT A BAND</h2>
   <ngx-datatable
     class="material"
     [rows]="rows"
@@ -13,9 +11,8 @@
     [headerHeight]="50"
     [footerHeight]="50"
     [rowHeight]="'auto'"
-    [selected]="selected"
     [selectionType]="'single'"
     (select)='onSelect($event)'
     >
-  </ngx-datatable>
+</ngx-datatable>
 </div>

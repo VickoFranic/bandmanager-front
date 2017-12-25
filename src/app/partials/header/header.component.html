@@ -15,5 +15,9 @@
 
   <span class="fill-remaining-space"></span>
   
-    <span *ngIf="authService.getUser()">{{ authService.getUser().name }}</span>
+  <small *ngIf="band">{{ band.name }}</small>
+
+  <span class="fill-remaining-space"></span>
+  <span *ngIf="authService.getUser()">{{ authService.getUser().name }}</span>
+
 </mat-toolbar>
