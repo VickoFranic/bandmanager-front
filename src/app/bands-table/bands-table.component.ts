@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FacebookClientService } from '../services/facebook-client.service';
+import { Router } from '@angular/router';
+import { FacebookClientService } from '../dashboard/services/facebook-client.service';
 
 @Component({
   selector: 'app-bands-table',
@@ -17,7 +18,7 @@ export class BandsTableComponent implements OnInit {
     { prop: 'name' }
   ];
 
-  constructor(private fbClient: FacebookClientService) { }
+  constructor(private fbClient: FacebookClientService, private router: Router) { }
 
   ngOnInit() {
     this.fbClient.getBands()
@@ -34,7 +35,10 @@ export class BandsTableComponent implements OnInit {
   }
 
   onSelect({ selected }) {
-    console.log('Select Event', selected, this.selected);
+    localStorage.setItem('selectedBandId', selected[0].id);
+    localStorage.setItem('selectedBandName', selected[0].name);
+
+    this.router.navigate(['/dashboard']);
   }
 
 }

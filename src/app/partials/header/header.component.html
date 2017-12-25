@@ -15,7 +15,7 @@
 
   <span class="fill-remaining-space"></span>
   
-  <small *ngIf="band">{{ band.name }}</small>
+  <small>{{ this.bandService.getSelectedBand().name }}</small>
 
   <span class="fill-remaining-space"></span>
   <span *ngIf="authService.getUser()">{{ authService.getUser().name }}</span>

@@ -49,9 +49,8 @@ export class AuthService {
             })
             .catch((error: any) => console.log(error));
         } else {
-          localStorage.removeItem('userId');
-          localStorage.removeItem('accessToken');
           this.router.navigate(['/']);
+          localStorage.clear();
         }
       });
   }

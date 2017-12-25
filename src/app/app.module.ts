@@ -9,10 +9,11 @@ import { AuthGuard } from './auth.guard';
 
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { BandsTableComponent } from './dashboard/bands-table/bands-table.component';
+import { BandsTableComponent } from './bands-table/bands-table.component';
 
 import { FacebookClientService } from './dashboard/services/facebook-client.service';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
+import { BandService } from './dashboard/services/band.service';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { NgxDatatableModule } from '@swimlane/ngx-datatable';
   ],
   providers: [
     AuthGuard,
-    FacebookClientService
+    FacebookClientService,
+    BandService
   ],
   bootstrap: [AppComponent]
 })

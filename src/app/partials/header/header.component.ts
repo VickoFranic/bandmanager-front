@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { AuthService } from '../../auth.service';
+import { BandService } from '../../dashboard/services/band.service';
 
 @Component({
   selector: 'app-header',
@@ -8,11 +9,10 @@ import { AuthService } from '../../auth.service';
 })
 export class HeaderComponent implements OnInit {
 
-  band: object = {};
 
-  constructor(private authService: AuthService) {}
+  constructor(private authService: AuthService, private bandService: BandService) {}
 
   ngOnInit() {
-      this.band = localStorage.selectedBand;
+
   }
 }
