@@ -1,0 +1,14 @@
+
+
+<h4>Inbox</h4>
+
+<mat-accordion>
+  <mat-expansion-panel *ngFor="let conversation of conversations">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        <span>{{ conversation.participants.data[0].name }} | (<b>{{ conversation.message_count }}</b>)</span>
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+      <!-- TODO - Read message -->
+  </mat-expansion-panel>
+</mat-accordion>

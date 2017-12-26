@@ -14,12 +14,14 @@ import { BandsTableComponent } from './bands-table/bands-table.component';
 import { FacebookClientService } from './dashboard/services/facebook-client.service';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 import { BandService } from './dashboard/services/band.service';
+import { InboxComponent } from './dashboard/inbox/inbox.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DashboardComponent,
-    BandsTableComponent
+    BandsTableComponent,
+    InboxComponent
   ],
   imports: [
     BrowserModule,

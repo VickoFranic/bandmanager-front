@@ -42,7 +42,7 @@
       </div>
 
       <div class="col-sm-9 col-md-10" *ngIf="selectedBandData">
-        <h1>Da vidimo test</h1>
+          <app-inbox [conversations]="selectedBandData.conversations.data"></app-inbox>
       </div>
 
     </div>
