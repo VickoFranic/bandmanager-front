@@ -6,7 +6,7 @@
   <mat-expansion-panel *ngFor="let conversation of conversations">
     <mat-expansion-panel-header>
       <mat-panel-title>
-        <span>{{ conversation.participants.data[0].name }} | (<b>{{ conversation.message_count }}</b>)</span>
+        <span>{{ conversation.participants.data[0].name }} | (<b>{{ conversation.message_count }}</b> messages)</span>
       </mat-panel-title>
     </mat-expansion-panel-header>
       <!-- TODO - Read message -->
