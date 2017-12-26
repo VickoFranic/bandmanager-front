@@ -8,20 +8,7 @@
 
     <div class="row">
       <div class="col-xs-12 col-sm-6 col-md-9" *ngIf="selectedBandData">
-        <p>
-          <mat-card>
-            <mat-card-header>
-              <mat-card-title>
-                <span>Admins</span>
-              </mat-card-title>
-              </mat-card-header>
-              <mat-card-content>
-                <div *ngFor="let admin of selectedBandData.roles.data">
-                  <h4>{{ admin.name }}</h4>
-                </div>
-              </mat-card-content>
-          </mat-card>
-        </p>
+        <!--  -->
       </div>
 
       <div class="col-xs-12 col-sm-6 col-md-3" *ngIf="selectedBandData">
@@ -39,6 +26,19 @@
                 <p>
                   {{ selectedBandData.about }}
                 </p>
+                <hr>
+                <span><b>Admins</b></span>
+                <br>
+                <br>
+                <div *ngFor="let admin of selectedBandData.roles.data">
+
+                  <h6>
+                    <a target="_blank" href="https://www.facebook.com/{{ admin.id }}">
+                      <mat-icon color="accent" style="font-size: 1.2em">person_outline</mat-icon>
+                      {{ admin.name }}
+                    </a>
+                  </h6>
+                </div>
               </mat-card-content>
 
           </mat-card>
