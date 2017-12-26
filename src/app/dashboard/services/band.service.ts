@@ -17,7 +17,7 @@ export class BandService {
   }
 
   getSingleBandFacebookData(band) {
-    const url = '/' + band.id + '?fields=cover,description,about,roles';
+    const url = '/' + band.id + '?fields=cover,description,about,roles,conversations';
     const token = band.access_token;  
 
     return this.facebookClientService.get(url, token)

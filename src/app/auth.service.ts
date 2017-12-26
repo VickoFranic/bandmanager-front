@@ -19,7 +19,7 @@ export class AuthService {
   loginWithFacebook(): void {
 
     let options = {
-      scope: 'public_profile,email,manage_pages'
+      scope: 'public_profile,email,manage_pages,read_page_mailboxes,pages_messaging'
     }
 
     this.fb.login(options)

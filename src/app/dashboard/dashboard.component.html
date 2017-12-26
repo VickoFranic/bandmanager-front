@@ -7,11 +7,8 @@
     </div>
 
     <div class="row">
-      <div class="col-xs-12 col-sm-6 col-md-9" *ngIf="selectedBandData">
-        <!--  -->
-      </div>
 
-      <div class="col-xs-12 col-sm-6 col-md-3" *ngIf="selectedBandData">
+      <div class="col-sm-3 col-md-2" *ngIf="selectedBandData">
           <mat-card>
             <mat-card-header>
               <mat-card-title>
@@ -43,6 +40,11 @@
 
           </mat-card>
       </div>
+
+      <div class="col-sm-9 col-md-10" *ngIf="selectedBandData">
+        <h1>Da vidimo test</h1>
+      </div>
+
     </div>
   </div>
 </div>
