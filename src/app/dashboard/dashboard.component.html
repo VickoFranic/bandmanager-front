@@ -1,5 +1,48 @@
 <div id="dashboard-container">
 
-  {{ selectedBand.name }}
-  
+  <div class="container-fluid">
+
+    <div class="row" *ngIf="! selectedBandData">
+      <mat-spinner></mat-spinner>
+    </div>
+
+    <div class="row">
+      <div class="col-xs-12 col-sm-6 col-md-9" *ngIf="selectedBandData">
+        <p>
+          <mat-card>
+            <mat-card-header>
+              <mat-card-title>
+                <span>Admins</span>
+              </mat-card-title>
+              </mat-card-header>
+              <mat-card-content>
+                <div *ngFor="let admin of selectedBandData.roles.data">
+                  <h4>{{ admin.name }}</h4>
+                </div>
+              </mat-card-content>
+          </mat-card>
+        </p>
+      </div>
+
+      <div class="col-xs-12 col-sm-6 col-md-3" *ngIf="selectedBandData">
+          <mat-card>
+            <mat-card-header>
+              <mat-card-title>
+                {{ selectedBand.name }}
+              </mat-card-title>
+              <mat-card-subtitle>
+                {{ selectedBandData.description }}
+              </mat-card-subtitle>
+            </mat-card-header>
+            <img *ngIf="selectedBandData.cover" mat-card-image src="{{ selectedBandData.cover.source }}">
+            <mat-card-content>
+                <p>
+                  {{ selectedBandData.about }}
+                </p>
+              </mat-card-content>
+
+          </mat-card>
+      </div>
+    </div>
+  </div>
 </div>

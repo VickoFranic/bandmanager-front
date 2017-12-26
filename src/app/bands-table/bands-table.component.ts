@@ -24,10 +24,12 @@ export class BandsTableComponent implements OnInit {
     this.fbClient.getBands()
     .then(bands => { 
       this.bands = bands;
+      console.log(bands);
       bands.forEach(band => {
         let tmp = {
           'id': band.id,
-          'name': band.name
+          'name': band.name,
+          'access_token': band.access_token
         }
         this.rows.push(tmp);
       });
@@ -37,6 +39,7 @@ export class BandsTableComponent implements OnInit {
   onSelect({ selected }) {
     localStorage.setItem('selectedBandId', selected[0].id);
     localStorage.setItem('selectedBandName', selected[0].name);
+    localStorage.setItem('selectedBandAccessToken', selected[0].access_token);
 
     this.router.navigate(['/dashboard']);
   }

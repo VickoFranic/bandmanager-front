@@ -17,6 +17,12 @@ span {
     font-weight: 300;
 }
 
+mat-spinner {
+    margin: auto;
+    width: 50%;
+    text-align: center;
+}
+
 /* Ngx Datatable */
 .datatable-body-row.active .datatable-row-group {
     background: #e1bee7!important;

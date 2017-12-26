@@ -28,4 +28,14 @@ export class FacebookClientService {
         return result;
       });
   }
+
+  get(url: string, accessToken: string = null) {
+    let token = accessToken;
+    if (! accessToken) {
+      token = this.authService.getUser().accessToken;
+    }
+
+    return this.fb.api(url, 'get', {'access_token': token})
+      .then((response) => response);
+  }
 }
